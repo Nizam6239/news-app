@@ -8,18 +8,22 @@ export class News extends Component {
     pageSize: 8,
     category: 'general',
   }
+  capitalizeFirstLetter=(string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
   static propTypes = {
    country: propTypes.string,
    pageSize: propTypes.number,
    category: propTypes.string,
   }
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       articles: [],
       loading: true,
-      page:1
+      page:1,
     }
+    document.title=`${this.capitalizeFirstLetter(this .props.category)} -NewsApp`;
   }
   async updateNews(){
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=7bf5dbc155bc458db3802d32b6b9a5ce&page=${this.state.page}&pageSize=${this.props.pageSize}`;
