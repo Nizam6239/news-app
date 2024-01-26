@@ -70,8 +70,10 @@
       "react-app",
       "react-app/jest"
     ],
+    "plugins": ["react-hooks"],
     "rules": {
-      "no-whitespace-before-property": "off"
+      "no-whitespace-before-property": "off",
+      "react-hooks/exhaustive-deps": 0
     }
   },
   "browserslist": {
